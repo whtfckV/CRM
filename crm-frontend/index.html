@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>CRM</title>
+  <link rel="stylesheet" href="./libs/choices.min.css">
+  <link rel="stylesheet" href="./styles/normalaize.css">
+  <link rel="stylesheet" href="./styles/style.css">
+  <script defer src="./libs/choices.min.js"></script>
+  <script defer src="./index.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header__wrap">
+        <img class="header__logo" src="./img/logo.png" width="50" height="50" alt="логотип">
+        <form id="searchForm" class="header__form" action="#">
+          <input class="header__inp" id="search" type="text" placeholder="Введите запрос" autocomplete="off">
+          <ul id="searchResult" class="list-result empty"></ul>
+        </form>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Клиенты</h1>
+        <div class="scroll-table">
+          <table class="table">
+            <thead class="table__head">
+              <th class="table__th">
+                <button class="table__btn" data-column="id">ID
+                  <svg class="table__icon" width="8" height="8" viewBox="0 0 8 8" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M3.49691e-07 4L0.705 4.705L3.5 1.915L3.5 8L4.5 8L4.5 1.915L7.29 4.71L8 4L4 -3.49691e-07L3.49691e-07 4Z"
+                      fill="#9873FF" />
+                  </svg>
+                </button>
+              </th>
+              <th class="table__th">
+                <button class="table__btn" data-column="fio">Фамилия Имя Отчество
+                  <svg class="table__icon" width="8" height="8" viewBox="0 0 8 8" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M3.49691e-07 4L0.705 4.705L3.5 1.915L3.5 8L4.5 8L4.5 1.915L7.29 4.71L8 4L4 -3.49691e-07L3.49691e-07 4Z"
+                      fill="#9873FF" />
+                  </svg>
+                </button>
+              </th>
+              <th class="table__th">
+                <button class="table__btn" data-column="createdAt">Дата и время создания
+                  <svg class="table__icon" width="8" height="8" viewBox="0 0 8 8" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M3.49691e-07 4L0.705 4.705L3.5 1.915L3.5 8L4.5 8L4.5 1.915L7.29 4.71L8 4L4 -3.49691e-07L3.49691e-07 4Z"
+                      fill="#9873FF" />
+                  </svg>
+                </button>
+              </th>
+              <th class="table__th">
+                <button class="table__btn" data-column="updatedAt">Последние изменения
+                  <svg class="table__icon" width="8" height="8" viewBox="0 0 8 8" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M3.49691e-07 4L0.705 4.705L3.5 1.915L3.5 8L4.5 8L4.5 1.915L7.29 4.71L8 4L4 -3.49691e-07L3.49691e-07 4Z"
+                      fill="#9873FF" />
+                  </svg>
+                </button>
+              </th>
+              <th class="table__th table__th-no-click">Контакты</th>
+              <th class="table__th table__th-no-click">Действия</th>
+            </thead>
+            <tbody class="table__body" id="clientsList"></tbody>
+          </table>
+        </div>
+        <button class="btn-add" id="addClient">
+          <svg class="btn-add__icon" width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.5 8C16.71 8 18.5 6.21 18.5 4C18.5 1.79 16.71 0 14.5 0C12.29 0 10.5 1.79 10.5 4C10.5 6.21 12.29 8 14.5 8ZM5.5 6V3H3.5V6H0.5V8H3.5V11H5.5V8H8.5V6H5.5ZM14.5 10C11.83 10 6.5 11.34 6.5 14V16H22.5V14C22.5 11.34 17.17 10 14.5 10Z" fill="#9873FF" />
+          </svg>
+          <span class="btn-add__text">Добавить клиента</span>
+        </button>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
