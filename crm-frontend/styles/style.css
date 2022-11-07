@@ -64,6 +64,22 @@ body {
   ;
 }
 
+.not-found {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  background-color: var(--grey_alpha5);
+}
+
+.not-found::after {
+  content: '🥲';
+  position: fixed;
+  left: 50%;
+  top: 20%;
+  font-size: 80px;
+  transform: translate(-50%, -50%);
+}
+
 .no-scroll {
   overflow: hidden;
 }

@@ -52,14 +52,21 @@
 
   // получения списка клиентов
   async function getClients({ id = null, search = null }) {
+
     let response;
-    if (id) {
-      response = await fetch(`${URL_API}/${id}`);
-    } else if (search) {
-      response = await fetch(`${URL_API}?search=${search}`);
-    } else {
-      response = await fetch(URL_API);
-    };
+    try {
+      if (id) {
+        response = await fetch(`${URL_API}/${id}`);
+      } else if (search) {
+        response = await fetch(`${URL_API}?search=${search}`);
+      } else {
+        response = await fetch(URL_API);
+      };
+    } catch (e) {
+      const serverNotFound = document.createElement('div');
+      serverNotFound.classList.add('not-found');
+      document.body.prepend(serverNotFound);
+    }
 
     const data = await response.json();
     return data;
@@ -805,21 +812,26 @@
     $popupCloseBtn.classList.add('popup__close');
     $body.classList.add('no-scroll');
 
-    addEventListener('click', event => {
-      if (event.target == $popupFade) {
+    function closePopup(event) {
+      if (event.target === $popupFade) {
         location.hash = '';
 
         $body.classList.remove('no-scroll');
         $popupFade.remove();
+        removeEventListener('click', closePopup);
       };
-    });
+    };
+
+    addEventListener('click', closePopup);
 
     $popupCloseBtn.addEventListener('click', () => {
       location.hash = '';
 
       $body.classList.remove('no-scroll');
       $popupFade.remove();
+      removeEventListener('click', closePopup);
     });
+
 
     $popupCloseBtn.append(createSvg('cross'));
 
