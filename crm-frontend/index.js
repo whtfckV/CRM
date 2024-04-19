@@ -1,7 +1,6 @@
 (async () => {
-  const URL_API = 'http://localhost:3000/api/clients';
-
   const
+    URL_API = 'http://localhost:3000/api/clients',
     $clientsList = document.getElementById('clientsList'),
     $btnAddClient = document.getElementById('addClient'),
     $sortBtnAll = document.querySelectorAll('.table__btn'),
@@ -51,7 +50,7 @@
   };
 
   // получения списка клиентов
-  async function getClients({ id = null, search = null }) {
+  async function getClients({ id, search } = { id: null, search: null }) {
 
     let response;
     try {
@@ -1066,7 +1065,7 @@
 
   // отрисовка таблицы
   async function render() {
-    let clients = await getClients({});
+    let clients = await getClients();
 
     if (clients) {
       $clientsList.classList.remove('load');

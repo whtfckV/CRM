@@ -122,6 +122,7 @@ body {
 
 .list-result {
   position: absolute;
+  z-index: 5;
   top: calc(100% - 3px);
   left: 0;
   right: 0;
@@ -245,7 +246,7 @@ body {
   background-color: var(--white);
 }
 
-.table__body.load {
+.table__body {
   position: relative;
 }
 
